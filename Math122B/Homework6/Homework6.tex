@@ -1,0 +1,341 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 122B Homework 6}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Chapter 16}
+\subsection*{Problem 1}
+To prove that $u+v$ is harmonic, we note that
+\[
+(u+v)_{xx} + (u+v)_{yy} = u_{xx} +v_{xx} + u_{yy} + v_{yy} = u_{xx} + u_{yy} + v_{xx} + v_{yy} = 0 + 0 = 0
+\] since $u$ and $v$ are harmonic by the analyticity of $f$. Next, we wish to show that $uv$ is harmonic. Here we use the analyticity of $f$ again. Note that
+\[
+f(z)f(z) = (u + iv)(u+iv) = u^2 - v^2 + 2iuv
+\] We divide by $2$ and take the imaginary part to obtain
+\[
+\imag\bigg(\frac{f(z)^2}{2}\bigg) = uv
+\] Since $f$ is analytic, we know that $f^2/2$ is analytic so that its real and imaginary parts are harmonic. In particular, we find that $uv$ is harmonic.
+\newpage
+\subsection*{Problem 2}
+Let $f$ be harmonic. We claim that $f_x$ and $f_y$ are harmonic. Notice that
+\[
+(f_{x})_{xx} + (f_x)_{yy} = (f_{xx} + f_{yy})_x = 0 
+\] and
+\[
+(f_y)_{xx} + (f_y)_{yy} = (f_{xx} + f_{yy})_y = 0
+\] since $f$ is harmonic. Thus, $f_x$ and $f_y$ are harmonic.
+\newpage
+\subsection*{Problem 3}
+First, we will compute $g_{xx}$. To do this, we first note that
+\[
+g_x = (u^2)_x = 2u u_x
+\] Then, we compute
+\[
+g_{xx} = (g_x)_x = (2uu_x)_x = 2u_x^2 + 2uu_{xx}
+\] Next, we will compute $g_{yy}$. To do this, we first note that
+\[
+g_y = (u^2)_y = 2u u_y
+\] Then, we compute
+\[
+g_{yy} = (g_{y})_y = (2u u_y)_y = 2u_y^2 + 2uu_{yy}
+\] From this, we deduce that
+\[
+g_{xx} + g_{yy} = 2u_x^2 + 2uu_{xx} + 2u_y^2 + 2uu_{yy} = 2u(u_{xx}+u_{yy})  + 2(u_x^2+u_y^2) = 2(u_x^2+u_y^2)
+\] (we know that $u_{xx} + u_{yy} = 0$ because $u$ is harmonic). If $u$ is not constant, then the latter expression is not always $0$, so $g$ is not harmonic.
+\newpage
+\subsection*{Problem 4}
+We first compute $u_x$:
+\[
+u_x = \frac{2x}{x^2+y^2} 
+\] Next, we compute $u_{xx}$:
+\[
+u_{xx} = (u_x)_x = \frac{2(x^2+y^2) - 2x(2x)}{(x^2+y^2)^2} = \frac{2y^2 - 2x^2}{(x^2+y^2)^2}
+\] We then compute $u_y$:
+\[
+u_y = \frac{2y}{x^2+y^2}
+\] and finally $u_{yy}$:
+\[
+u_{yy} = (u_y)_y = \frac{2(x^2+y^2) - 2y(2y)}{(x^2+y^2)^2} = \frac{2x^2 - 2y^2}{(x^2+y^2)^2}
+\] We now obtain
+\[
+u_{xx} + u_{yy} = \frac{2y^2 - 2x^2}{(x^2+y^2)^2} + \frac{2x^2 - 2y^2}{(x^2+y^2)^2} = 0
+\] so that $u$ is indeed harmonic in $\cc \setminus \{0\}$. Now, we claim that $u$ is not the real part of an analytic function on $\cc \setminus \{0\}$. For the sake of contradiction, suppose that there was some analytic function $f = u + iv$ on $\cc \setminus \{0\}$ such that $\re(f) = u$. By the Cauchy-Riemann equations, we have
+\[
+f^\prime(z) = u_x(z) + iv_x(z) = u_x(z) - i u_y(z) = \frac{2x}{x^2+y^2} - i\frac{2y}{x^2+y^2} = \frac{2(x-iy)}{x^2+y^2} = \frac{2\overline{z}}{\vert z \vert^2} = \frac{2}{z}
+\] Now, let $C$ be the unit circle. Since $f^\prime(z)$ is the derivative of $f(z)$ (which is analytic on the unit circle $C$), we have
+\[
+\int_C f^\prime(z) = 0
+\] However, we also know that
+\[
+\int_C f^\prime(z) = \int_C \frac{2}{z} = 4\pi i
+\] Thus, we have reached a contradiction, so we know that $u$ is not the real part of an analytic function $f$ on $\cc \setminus \{0\}$.
+\newpage
+\subsection*{Problem 5}
+\subsubsection*{Part A}
+We wish to express the equation 
+\[
+u_{xx} + u_{yy} = 0
+\] in terms of $r$ and $\theta$. First, we note that
+\[
+u_x = r_x u_r + \theta_x u_\theta
+\] Notice that
+\[
+r_x = (\sqrt{x^2+y^2})_x = \frac{x}{\sqrt{x^2+y^2}} = \frac{r \cos \theta}{r} = \cos \theta 
+\] and 
+\[
+\theta_x = (\arctan(y/x))_x = \frac{1}{1+(y/x)^2}\cdot -\frac{y}{x^2} = -\frac{y}{x^2+y^2} = -\frac{r\sin \theta}{r^2} = -\frac{\sin \theta}{r}
+\] so that 
+\[
+u_x =  u_r \cos \theta   - u_\theta \frac{\sin \theta}{r} 
+\] Then, we have
+\[
+u_{xx} = u_{rx} \cos \theta + u_r (\cos\theta)_x - u_{\theta x} \frac{\sin \theta}{r} - u_\theta \bigg(\frac{\sin \theta}{r}\bigg)_x
+\] We compute
+\[
+u_{rx} \cos \theta = u_{rr} \cos^2 \theta - u_{r\theta}\frac{\sin\theta\cos\theta}{r}
+\] and
+\[
+u_r (\cos\theta)_x = u_r \frac{\sin^2\theta}{r}
+\] and
+\[
+-u_{\theta x} \frac{\sin \theta}{r} = -u_{\theta r} \frac{\cos \theta \sin \theta}{r} + u_{\theta\theta}\frac{\sin^2\theta}{r^2}
+\] and 
+\[
+- u_\theta \bigg(\frac{\sin \theta}{r}\bigg)_x = 2u_\theta \frac{\cos \theta \sin \theta}{r^2}
+\] Adding these together, we obtain
+\[
+u_{xx} = u_{rr} \cos^2\theta - 2u_{r\theta} \frac{\sin \theta \cos \theta}{r} + u_r \frac{\sin^2\theta}{r} + u_{\theta \theta} \frac{\sin^2\theta}{r^2} + 2u_\theta \frac{\cos \theta \sin \theta}{r^2}
+\] Next, we compute
+\[
+u_{y} = r_y u_r + \theta_y u_\theta 
+\] Notice that
+\[
+r_y = (\sqrt{x^2+y^2})_y = \frac{y}{\sqrt{x^2+y^2}} = \frac{y}{r} = \frac{r \sin \theta}{r} = \sin \theta
+\] and
+\[
+\theta_y = (\arctan(y/x))_y = \frac{1}{1+(y/x)^2} \cdot \frac{1}{x} = \frac{1}{x+y^2/x} = \frac{x}{x^2+y^2} = \frac{x}{r^2} = \frac{r \cos \theta}{r^2} = \frac{\cos \theta}{r}
+\] so that
+\[
+u_{y} = u_r\sin \theta + u_\theta  \frac{\cos \theta}{r}
+\] Now, we note that
+\[
+u_{yy} = u_{ry} \sin \theta + u_r (\sin \theta)_y + u_{\theta y} \frac{\cos \theta}{r} + u_\theta \bigg( \frac{\cos \theta}{r}\bigg)_y
+\] We compute
+\[
+u_{ry} \sin \theta = u_{rr} \sin^2 \theta + u_{r\theta} \frac{\sin \theta \cos \theta}{r}
+\] and
+\[
+u_r (\sin \theta)_y = u_r \frac{\cos^2\theta}{r}
+\] and 
+\[
+u_{\theta y} \frac{\cos \theta}{r} = u_{\theta r} \frac{\sin \theta \cos \theta}{r} + u_{\theta \theta} \frac{\cos^2\theta}{r^2}
+\] and 
+\[
+u_\theta \bigg(\frac{\cos \theta}{r}\bigg)_y = -2u_\theta \frac{\cos\theta\sin\theta}{r^2}
+\] Adding these together, we find that
+\[
+u_{yy} = u_{rr} \sin^2 \theta + 2u_{r\theta} \frac{\sin \theta \cos \theta}{r} + u_r \frac{\cos^2\theta}{r} + u_{\theta \theta} \frac{\cos^2\theta}{r^2} -2u_\theta \frac{\cos\theta\sin\theta}{r^2}
+\] Now, we find that
+\[
+u_{xx} + u_{yy} = u_{rr} + \frac{1}{r}u_r + \frac{1}{r^2}u_{\theta\theta} = 0
+\] If $u$ depends on $r$ only, then we know that $u_{\theta\theta} = 0$. Thus, we obtain
+\[
+u_{rr} + \frac{1}{r}u_r = 0
+\] 
+\subsection*{Part B}
+Since $u$ depends on $r$ only, we may write 
+\[
+u^{\prime\prime}(r) + \frac{1}{r} u^\prime(r) = 0
+\] Let $f = u^\prime$ so that
+\[
+f^\prime(r) + \frac{1}{r} f(r) = 0
+\] Separation of variables yields
+\[
+\frac{f^\prime(r)}{f(r)} = -\frac{1}{r}
+\] so that integration gives $\log f = - \log r +C$. Exponentiation then yields
+\[
+f = e^{-\log r+ C} = e^{\log r^{-1}}\cdot e^C = a\frac{1}{r}
+\] Recall that $f = u^\prime$ so that
+\[
+u^\prime(r) = a\frac{1}{r}
+\] and 
+\[
+u = a\log r + b
+\] as desired.
+\newpage
+\subsection*{Problem 7}
+First, we compute $z^3$:
+\[
+z^3 = (x+iy)^3 = x^3 + 3ix^2y - 3xy^2 - iy^3 
+\] so that
+\[
+\re(z^3) = x^3 - 3xy^2
+\] On the unit circle, we know that $x^2 + y^2 = 1$ so that $y^2 = 1-x^2$. Then, we have
+\[
+x^3 - 3xy^2 = x^3 - 3x(1-x^2) = x^3 - 3x + 3x^3 = 4x^3 - 3x
+\] on the unit circle. If we set 
+\[
+u(x,y) = \frac{1}{4}(x^3 - 3xy^2 + 3x)
+\] then $u$ is a harmonic function that equals $x^3$ on the boundary of the unit disk. Just to be certain, we compute
+\[
+u_{xx} = \frac{1}{4}(6x)
+\] and 
+\[
+u_{yy} = -\frac{1}{4}(6x)
+\] so that 
+\[
+u_{xx} + u_{yy} = 0
+\] and $u$ is harmonic.
+\newpage
+\subsection*{Problem 9}
+We consider the function
+\[
+u(x,y) = 1/2+(1/\pi)\arctan(x/y)
+\] (we choose this function because $\arctan(z)$ goes to $-\pi/2$ or $\pi/2$ as $z \rightarrow -\infty$ or $z \rightarrow \infty$, respectively). First, we compute
+\[
+\frac{\partial}{\partial{x}} \arctan(y/x) = \frac{1}{1+(y/x)^2} \cdot -\frac{y}{x^2} = \frac{-y}{x^2+y^2}
+\] and
+\[
+\frac{\partial^2}{\partial^2{x}} \arctan(y/x) = \frac{\partial}{\partial{x}} \frac{-y}{x^2+y^2} = \frac{2xy}{(x^2+y^2)^2}
+\] Next, we compute
+\[
+\frac{\partial}{\partial{y}} \arctan(y/x) = \frac{1}{1+(y/x)^2} \frac{1}{x} = \frac{1}{x+y^2/x} = \frac{x}{x^2+y^2}
+\] and
+\[
+\frac{\partial^2}{\partial^2{y}} \arctan(y/x) = \frac{\partial}{\partial{y}} \frac{x}{x^2+y^2} = \frac{-2xy}{(x^2+y^2)^2}
+\] From this, we can see that $u_{xx}+u_{yy} = 0$ and the function is harmonic. Now, let us fix $x > 0$. As $y \rightarrow 0$, $\arctan(x/y)$ goes to $\pi/2$, so the function $u(x,y)$ goes to $1$. Next, let us fix $x < 0$. As $y \rightarrow 0$, $\arctan(x/y)$ goes to $-\pi/2$ so that $u(x,y)$ goes to $0$.
+\newpage
+\section*{Chapter 17}
+\subsection*{Problem 1}
+First, we note that
+\[
+1-\frac{1}{k^2} = \frac{k^2 - 1}{k^2} = \frac{(k-1)(k+1)}{k^2} = \frac{k-1}{k} \cdot \frac{k+1}{k} = \frac{\frac{k+1}{k}}{\frac{k}{k-1}}
+\] Thus the product telescopes:
+\[
+\prod_{k=2}^n \bigg(1 - \frac{1}{k^2}\bigg) = \prod_{k=2}^n \frac{\frac{k+1}{k}}{\frac{k}{k-1}} = \frac{\frac{3}{2}}{\frac{2}{1}}\cdot \frac{\frac{4}{3}}{\frac{3}{2}} \cdots \frac{\frac{n}{n-1}}{\frac{n-1}{n-2}} \cdot \frac{\frac{n+1}{n}}{\frac{n}{n-1}} = \frac{n+1}{2n}
+\] so that the product converges to $1/2$.
+\newpage
+\subsection*{Problem 2}
+By direct computation, we have
+\[
+\prod_{k=2}^n \bigg[1+ \frac{(-1)^k}{k}\bigg] = \bigg(\frac{3}{2}\bigg)\bigg(\frac{2}{3}\bigg)\bigg(\frac{5}{4}\bigg)\bigg(\frac{4}{5}\bigg)\cdots\bigg(1 + \frac{(-1)^n}{n}\bigg)
+\] If $n$ is odd, then the partial product is $1$. If $n$ is even, then the partial product is $1+1/n$. In any event, the product converges to $1$.
+\newpage
+\subsection*{Problem 3}
+First, we prove that 
+\[
+\prod_{n} \bigg \vert 1 + \frac{i}{n} \bigg \vert
+\] converges. To prove this, we note that
+\[
+1 \leq \bigg \vert 1 + \frac{i}{n} \bigg \vert = \sqrt{1 + \frac{1}{n^2}} \leq 1 + \frac{1}{n^2}
+\] We also note that 
+\[
+\sum_n \frac{1}{n^2}
+\] converges so that
+\[
+\prod_n \bigg(1 + \frac{1}{n^2}\bigg) 
+\] converges. Thus, we find that
+\[
+\prod_{n} \bigg \vert 1 + \frac{i}{n} \bigg \vert
+\] converges. Next, we prove that
+\[
+\prod_n \bigg(1 + \frac{i}{n}\bigg)
+\] diverges. From the previous part, we know that the modulus converges. The only way that this can diverge is if the argument diverges. Thus we consider the argument. First, we note that
+\[
+\tan \arg\bigg(1 + \frac{i}{n}\bigg) = \frac{1}{n}
+\] Taking the arctangent, we obtain
+\[
+\arg\bigg(1 + \frac{i}{n}\bigg) \geq \frac{\pi}{4n}
+\] Now, we note that
+\[
+\arg \prod_{k=1}^n \bigg(1 + \frac{i}{k}\bigg) = \sum_{k=1}^n \arg\bigg(1 + \frac{i}{k}\bigg)
+\] since the argument of a product is the sum of the arguments. Then, we have
+\[
+\sum_{k=1}^n \arg\bigg(1 + \frac{i}{k}\bigg) \geq \frac{\pi}{4} \sum_{k=1}^n \frac{1}{k}
+\] which diverges as $n$ goes to $\infty$. Thus, we may deduce that
+\[
+\prod_n \bigg(1 + \frac{i}{n}\bigg)
+\] diverges.
+\end{document}  

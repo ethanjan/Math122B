@@ -1,0 +1,155 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ \usepackage{mathrsfs}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 122B Final Exam}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Chapter 10}
+First, we will define residues as follows: $\text{Res}(f;z_0) = C_{-1}$, where $f(z) = \sum_{k=-\infty}^\infty C_k (z - z_0)^k$ in a deleted neighborhood of $z_0$. While this definition may seem arbitrary at first, we can use residues to compute contour integrals. To do so, we first introduce the concept of winding number: let $\gamma$ be a closed curve and let $a \not \in \gamma$. Then we define the winding number $n(\gamma,a)$ as
+\[
+\frac{1}{2\pi i} \int_\gamma \frac{\diff z}{z-a}
+\] Geometrically, $n(\gamma,a)$ is the number of times that $\gamma$ winds around $a$; in fact, we have $n(\gamma,a) \in \zz$. We can now state Cauchy's Residue Theorem: let $f$ be analytic in a simply connected domain $D$ except for singularities at $z_1,\ldots,z_m$. Then
+\[
+\int_\gamma f = 2\pi i \sum_{k=1}^m n(\gamma; z_k) \cdot \text{Res}(f;z_k)
+\] for any curve $\gamma \subseteq D$ such that $z_i\not \in \gamma$ for all $i$. This surprising result has several applications. First, we have the Argument Principle:
+\[
+\frac{1}{2\pi i} \int_\gamma \frac{f^\prime}{f} = \zz - \mathbb{P} = \text{number of zeros} - \text{number of poles}
+\] if $f$ is meromorphic on and inside $\gamma$. This implies Rouche's Theorem: let $f$ and $g$ be analytic on and inside $\gamma$. If $\vert f \vert > \vert g \vert$ on $\gamma$, then $\zz(f+g) = \zz(f)$ inside $\gamma$. It also implies Hurwitz' Theorem: if $\{f_n\}$ are nonzero and analytic and $f_n \rightarrow f$ uniformly on compacta in a region $D$, then $f \equiv 0$ in $D$ or $f \neq 0$ in $D$. Here we see the surprising rigidity of analytic functions.
+\section*{Chapter 11}
+Using residue calculus, we can easily evaluate many integrals. For example, if $P$ and $Q$ are polynomials such that $\deg Q - \deg P \geq 2$, then 
+\[
+\int_{-\infty}^\infty \frac{P(x)}{Q(x)} \diff x = 2\pi i \sum_{k} \text{Res}\bigg(\frac{P}{Q}; z_k\bigg)
+\] where the summation is taken over all the zeroes of $Q$ in the upper half plane. This is merely one of the many ways that contour integration can be used to evaluate difficult integrals.
+\section*{Chapter 13}
+A $1-1$ analytic mapping is called a conformal mapping. If there is a conformal mapping from $D_1$ onto $D_2$, we say that these two regions are conformally equivalent. We consider a very important class of conformal mappings: the bilinear transformations. A bilinear transformation is a mapping of the form
+\[
+T(z) = \frac{az+b}{cz+d}
+\] where $a,b,c,d$ are complex constants such that $ad - bc \neq 0$. It is clear that bilinear mappings are $1-1$. Furthermore, they take circles and lines to circles and lines. Another important property of bilinear transformations is that they have at most two fixed points (excluding the identity mapping). Using this fact, we can show that the unique bilinear mapping that takes $z_1,z_2,z_3$ to $\infty, 0, 1$, respectively, is given by
+\[
+T(z) = \frac{(z-z_2)(z_3-z_1)}{(z-z_1)(z_3-z_2)}
+\] With this, we may define the cross-ratio of the four complex numbers $z_1,z_2,z_3,z_4$ as follows: $[z_1,z_2,z_3,z_4]$ is the image of $z_4$ under the unique bilinear map that sends $z_1,z_2,z_3$ to $\infty, 0, 1$, respectively. By the above result, we have
+\[
+[z_1,z_2,z_3,z_4] = \bigg(\frac{z_4-z_2}{z_4 - z_1}\bigg)\bigg(\frac{z_3-z_1}{z_3-z_2}\bigg)
+\] The cross ratio is invariant under bilinear transformations; that is, if $T$ is bilinear, then $[T(z_1),T(z_2),T(z_3),T(z_4)] = [z_1,z_2,z_3,z_4]$. With this, we can show that the unique bilinear mapping $\omega = f(z)$ that takes $z_1, z_2, z_3$ to $\omega_1,\omega_2,\omega_3$ is given by
+\[
+\frac{(\omega-\omega_2)(\omega_3-\omega_1)}{(\omega-\omega_1)(\omega_3-\omega_2)} = \frac{(z-z_2)(z_3 - z_1)}{(z-z_1)(z_3-z_2)}
+\]
+\section*{Chapter 14}
+Now, we state the Riemann Mapping Theorem: let $R_1$ and $R_2$ be open simply connected proper subsets of $\cc$. Then there exists a conformal mapping of $R_1$ onto $R_2$ that is essentially unique (here, we mean that it is unique up to an automorphism of the unit disk). To prove this theorem, it suffices to prove that $R_1$ can be conformally mapped onto the unit disk $U$. We briefly outline the proof. Let $\mathscr{F}$ be the collection of all $1-1$ analytic functions $f: R \rightarrow U$ satisfying $f^\prime(z_0) > 0$. First, we prove that $\mathscr{F}$ is nonempty. Then, we show that $\sup_{f \in \mathscr{F}} f^\prime(z_0) = M < \infty$ and that there exists some function $\varphi \in \mathscr{F}$ such that $\varphi^\prime(z_0) = M$. Finally, we show that $\varphi$ is a conformal mapping of $R$ \emph{onto} $U$ and that $\varphi(z_0) = 0$. This theorem illustrates both the flexibility and rigidity of analytic functions. That is, we can find a conformal map between any two simply connected regions (as long as they are not equal to $\cc$), and this mapping is essentially unique.
+\section*{Chapter 16}
+We first define harmonic functions: a function $u: \rr^n \rightarrow \rr$ is said to be harmonic if its second partial derivatives are continuous and $\sum_{i=1}^n u_{ii} = 0$. There is a surprising connection between analytic functions on $\cc$ and harmonic functions on $\rr^2$. For example, if $f = u + iv$ is analytic, then $u$ and $v$ are harmonic. We also have a partial converse. If $u$ is harmonic in $D$, then $u_x$ is the real part of an analytic function $f$ in $D$. If we further assume that $D$ is simply connected, then $u$ itself is the real part of an analytic function $F = \int f$ in $D$. With this result, we can show that $u(z) = \int_0^{2\pi} u(z_0 + re^{i\theta}) \diff \theta$ for $z_0 \in D$. Furthermore, we can also deduce that any harmonic function $u$ in a region $D$ has no maximum or minimum value. This informs us that any $C$-harmonic function $u$ in a compact domain must assume its maximum and minimum on the boundary of that domain. We also have surprisingly strong constraints on the values of a harmonic function: if a function $u$ is $C$-harmonic in the unit disk $D(0;1)$, then we have
+\[
+u(z) = \frac{1}{2\pi} \int_0^{2\pi} u(e^{i\theta}) \re\bigg[\frac{e^{i\theta}+z}{e^{i\theta}-z}\bigg] \diff \theta
+\] Furthermore, if $u$ is continuous on the unit circle $C(0;1)$, then the above formula defines a $C$-harmonic function in the unit disk $D(0;1)$. With this formula, it is possible to prove that if $f$ is entire and its real or imaginary part is bounded in growth by a polynomial, then $f$ is a polynomial, which nicely extends Liouville's Theorem. So far, we have obtained most of our results about harmonic functions by appealing to the corresponding properties of analytic functions. As such, we have only been able to prove facts about harmonic functions defined on the real plane $\rr^2$. However, we should note that harmonic functions defined on $\rr^n$ with $n > 2$ also have many nice properties. For example, it can be shown that all harmonic functions take their maximum and minimum on the boundary of a compact domain. Furthermore, we have an analogue of Liouville's theorem for harmonic functions: if a harmonic function $u: \rr^n \rightarrow \rr$ is bounded, then it is constant.
+\section*{Chapter 17}
+Let $\{u_k\} \subseteq \cc$ be a nonzero sequence. The infinite product $\prod_k u_k$ is said to converge if the sequence $P_n = u_1\cdots u_n$ converges to a nonzero number. If $P_n$ converges to $0$, then we say that the infinite product diverges to $0$. If $\prod_k u_k$ converges, then $u_n = P_n/P_{n-1} \rightarrow 1$ (notice that this only holds because we assume that $P_n$ does not converge to $0$). Thus, we can write the product in the form $\prod_k (1+z_k)$ with the understanding that $z_k \rightarrow 0$ if the product converges (and we assume that $z_k \neq -1$). There is a close connection between converging products and converging sums: the product $\prod_k (1+z_k)$ converges if and only if $\sum_k \log(1+z_k)$ converges (where $\log$ is taken to be the principal branch). Furthermore, if $u_k(z)$ is analytic in a region $D$ for every $k$ and $\sum_k \vert u_k(z) \vert$ converges uniformly on compacta, then the product $\prod_k (1+u_k(z))$ converges uniformly on compacta to an analytic function in $D$. With this result, we can prove the Weierstrass representation theorem: If $\{\lambda_n\} \rightarrow \infty$, then there exists an entire function $f$ such that $f(z) = 0$ if and only if $z = \lambda_n$ for some $n$. With this, it can be shown that
+\[
+\frac{\sin \pi z}{\pi} = z \prod_{k=1}^\infty \bigg(1 - \frac{z^2}{k^2}\bigg)
+\] Expanding the corresponding power series yields a nice proof of the result
+\[
+\sum_{n=1}^\infty \frac{1}{n^2} = \frac{\pi^2}{6}
+\]
+\section*{Chapter 18}
+To extend the factorial function from the integers to the reals, we define
+\[
+\Gamma(x) := \int_0^\infty e^{-t} t^{x-1} \diff t
+\] Using induction and integration by parts, we find that $\Gamma(n) = (n-1)!$ for every positive integer $n$ (so we know that $\Gamma$ agrees with the factorial function on the integers). Furthermore, we note that $\Gamma(x+1) = x\Gamma(x)$, $\Gamma$ is log convex, and $\Gamma(1) = 1$. Surprisingly, we can show that any function $f$ with these three properties is equal to the function $\Gamma$. The function $\Gamma$ has many other special properties. It is continuous and infinitely differentiable (except at $0$ and the negative integers). Furthermore, the following equation holds:
+\[
+\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)} = \int_0^1 t^{x-1}(1-t)^{y-1} \diff t
+\] With this formula, we can derive the value of $\Gamma(\frac{1}{2})$. Let $x = \frac{1}{2}$ and $y = \frac{1}{2}$. Then, we find that
+\[
+\bigg(\Gamma\bigg(\frac{1}{2}\bigg)\bigg)^2 = \int_0^1 \frac{1}{\sqrt{t}{\sqrt{1-t}}} \diff t = 2 \int_0^{\frac{\pi}{2}} \diff \varphi = \pi
+\] where the second equality follows from the substitution $t = \sin^2 \varphi$. Thus, we obtain $\Gamma(\frac{1}{2}) = \sqrt{\pi}$. Using the formula $\Gamma(x+1) = x\Gamma(x)$, we can find the value of $\Gamma(\frac{1}{2}+n)$ for any integer $n$. Of course, the function $\Gamma$ has many more interesting properties. For example, we have
+\[
+\Gamma(x)\Gamma(1-x) = \frac{\pi}{\sin \pi x}
+\] which is often referred to as Euler's functional equation. This equation has many useful properties. For example, letting $x = \frac{1}{2}$, we find that
+\[
+\bigg(\Gamma\bigg(\frac{1}{2}\bigg)\bigg)^2 = \frac{\pi}{\sin \frac{\pi}{2}} = \pi
+\] which yields another proof of the fact that $\Gamma(\frac{1}{2}) = \sqrt{\pi}$. We can also rederive the equation
+\[
+\sin \pi x = x \prod_{i=1}^\infty \bigg(1 - \frac{x^2}{i^2}\bigg)
+\]
+ Finally, we note that the function $\Gamma$ can be extended to the complex plane using the same definition as for real numbers. The functional equations involving $\Gamma$ also hold for complex numbers.
+\end{document} 

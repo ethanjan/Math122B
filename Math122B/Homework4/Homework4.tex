@@ -1,0 +1,170 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 122B Homework 4}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Problem 6}
+First, we let the mapping $f$ be defined as follows:
+\[
+f(z) = \frac{-(z-1)^2}{4(z+1)^2}
+\] From the textbook, we know that this mapping takes the upper semi-disk to the upper half plane. Next, we let the mapping $g$ be defined by
+\[
+g(z) = \frac{i-z}{i+z}
+\] This mapping takes the upper half plane to the unit disk. Thus the desired mapping is $g \circ f$.
+\newpage
+\section*{Problem 12}
+Let us consider the mapping $g = f_1 \circ f_2^{-1}$. This function $g$ is an automorphism of the unit disk. Notice that
+\[
+g(0) = f_1(f_2^{-1}(0)) = f_1(z_0) = 0
+\] so that $g(z) = e^{i\theta} z$. Next, we have
+\[
+e^{i\theta} = g^\prime(0) = f_1^\prime(f_2^{-1}(0)) ((f_2^{-1})^\prime(0)) = f_1^\prime(z_0) \cdot \frac{1}{f_2^\prime(f_2^{-1}(0))} = \frac{f_1^\prime(z_0)}{f_2^\prime(z_0)} > 0 
+\] so that $e^{i\theta} = 1$ and $g$ is the identity. From this, we deduce that $f_1 = f_2$. 
+\newpage
+\section*{Problem 13}
+First, we suppose that $f$ is a conformal mapping from some half-plane $H_1$ to another half-plane $H_2$. Let $g$ be a linear mapping that takes $H_1$ to the upper half-plane, and let $h$ be a linear mapping that takes $H_2$ to the upper half-plane. Then $h \circ f \circ g^{-1}$ is an automorphism of the upper half-plane, so we may write
+\[
+h \circ f \circ g^{-1} = \frac{az+b}{cz+d}
+\] where $a,b,c,d$ are real and $ad - bc > 0$. Then, we obtain
+\[
+f = h^{-1} \circ \frac{az+b}{cz+d} \circ g
+\] so that $f$ is bilinear (since the composition of bilinear transformations is bilinear).
+
+Next, we may suppose that $f$ is a conformal mapping of the half-plane $H$ to the disk $D$. Let $g$ be a linear mapping from $H$ to the upper half-plane, and let $h$ be a linear mapping from the unit disk to $D$. Then $h^{-1} \circ f \circ g^{-1}$ is a conformal mapping of the upper half-plane onto $U$ so that
+\[
+h^{-1} \circ f \circ g^{-1} = e^{i\theta} \bigg(\frac{z-\alpha}{z-\overline{\alpha}}\bigg)
+\] for some $\alpha$ with $\imag \alpha > 0$. Thus we obtain
+\[
+f = h \circ e^{i\theta} \bigg(\frac{z-\alpha}{z-\overline{\alpha}}\bigg) \circ g
+\] so that $f$ is bilinear.
+
+Next, we may suppose that $f$ is a conformal mapping of the disk $D$ to the half-plane $H$. Let $g$ be a linear mapping of the half-plane $H$ to the upper half-plane. Let $h$ be a mapping of the unit disk to $D$. Then $h^{-1} \circ f^{-1} \circ g^{-1}$ maps the upper half-plane to the unit disk, so it is of the form
+\[
+h^{-1} \circ f^{-1} \circ g^{-1} = e^{i\theta} \bigg(\frac{z-\alpha}{z-\overline{\alpha}}\bigg)
+\] so that
+\[
+f^{-1} = h \circ e^{i\theta} \bigg(\frac{z-\alpha}{z-\overline{\alpha}}\bigg) \circ g
+\] Thus $f^{-1}$ is bilinear so that $f$ is bilinear.
+
+Finally, we may suppose that $f$ is a conformal mapping of the disk $D_1$ onto the disk $D_2$. Let $g$ be a linear mapping from the unit disk to $D_1$, and let $h$ be a linear mapping from $D_2$ to the unit disk. Then $h \circ f \circ g$ is an automorphism of the unit disk. Thus we have
+\[
+h \circ f \circ g = e^{i\theta}z
+\] so that
+\[
+f = h^{-1} \circ e^{i\theta} z \circ g^{-1}
+\] is a bilinear map.
+\newpage
+\section*{Problem 14}
+First, we note that
+\[
+f(z) = \frac{az+b}{cz+d} = \frac{az+b}{cz+d} \cdot \frac{c \overline{z} + d}{c \overline{z} + d} = \frac{ac \vert z \vert^2 + bc \overline{z} + adz + bd}{\vert cz + d \vert^2}
+\] From this, we obtain
+\[
+\imag f(z) = (ad - bc) \imag z
+\] If $\imag z > 0$, then we know that
+\[
+\imag f(z) = (ad - bc) \imag z < 0
+\] since $ad - bc < 0$. Thus we find that $f$ maps the upper half-plane into the lower half-plane. Next, we claim that $f$ is onto. Let $z \in \cc$ be such that $\imag z < 0$. Then, we have
+\[
+f^{-1}(z) = \frac{dz-b}{-cz+a} = \frac{dz-b}{-cz+a} \cdot \frac{-c\overline{z}+a}{-c\overline{z}+a} = \frac{-cd\vert z\vert^2 - ab + bc\overline{z} + adz}{\vert - cz + a \vert^2}
+\] We have
+\[
+\imag f^{-1}(z) = (ad - bc) \imag z > 0 
+\] since $ad - bc < 0$ and $\imag z < 0$. Thus we find that $f$ maps the upper half-plane onto the lower half-plane.
+\newpage
+\section*{Problem 15}
+Let $g$ be an automorphism of the first quadrant. By Lemma $13.13$, we may write $g = f^{-1} \circ h \circ f$, where $f$ is a conformal mapping of the first quadrant onto the upper half-plane and $h$ is an automorphism of the upper half-plane. Let $f(z) = z^2$. By Theorem $13.17$, we know that
+\[
+h(z) = \frac{az+b}{cz+d}
+\] where $a,b,c,d$ are real and $ad-bc > 0$. Thus, we find that
+\[
+g(z) = \sqrt{\frac{az^2+b}{cz^2+d}}
+\]
+\newpage
+\section*{Problem 18}
+First, we suppose that $z_4$ lies on the same circle or line as $z_1$, $z_2$, and $z_3$. Then, we claim that $[z_1,z_2,z_3,z_4]$ is real-valued. Let $T$ be the bilinear mapping that sends $z_1$, $z_2$ and $z_3$ to $\infty$, $0$, and $1$. Notice that $T$ sends the circle or line containing $z_1$, $z_2$, and $z_3$ to the real line (since bilinear maps take circles and lines to circles and lines). Thus $z_4$ is also mapped to a point on the real line so that $T(z_4) = [z_1,z_2,z_3,z_4]$ is real-valued. 
+
+Conversely, we suppose that  $[z_1,z_2,z_3,z_4]$ is real-valued, and we claim that $z_4$ must lie on the same circle or line as $z_1$, $z_2$, and $z_3$. Let $T$ be the bilinear mapping that sends $z_1$, $z_2$, and $z_3$ to $\infty$, $0$, and $1$. By assumption, we have $T(z_4) = [z_1,z_2,z_3,z_4] \in \rr$. Thus, we know that $T(z_4)$ is on the real line along with $T(z_1)$, $T(z_2)$, and $T(z_3)$. Applying $T^{-1}$, which is bilinear, we find that $z_4$ is on the same circle or line as $z_1$, $z_2$, and $z_3$.
+\end{document} 

@@ -1,0 +1,177 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 122B Homework 5}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Problem 4}
+From the textbook, we know that $F(z) = z + 1/z$ maps the exterior of the unit circle onto $\cc \setminus [-2,2]$. Now, we claim that this mapping is unique up to an additive constant. Since $F(z) \sim z$ as $z \rightarrow \infty$, we find that
+\[
+F(z) = z + C_0 + \frac{C_1}{z} + \frac{C_2}{z^2} + \cdots
+\] where each $C_i = c_i + id_i$ for real $c_i, d_i$. Since we are assuming that $F$ takes the exterior of the unit disk to the outside of a horizontal interval, we know that $F$ takes the boundary of the unit disk to the horizontal interval. That is, we have $\imag f(e^{i\theta}) = c$ for all $\theta$. Now, we compute
+\[
+F(e^{i\theta}) =  e^{i\theta} + C_0 + C_1 e^{-i\theta} + C_2 e^{-2i\theta} + \cdots
+\] Notice that
+\[
+C_k e^{-ki\theta} = (c_k+id_k)(\cos(k\theta)-i\sin(k\theta)) = c_k \cos(k\theta) + d_k \sin(k\theta) - ic_k\sin(k\theta) + i d_k \cos(k\theta)
+\] so that
+\[
+\imag F(e^{i\theta}) = \sin \theta + d_0 - \sum_{k=1}^\infty c_k \sin(k\theta) + \sum_{k=1}^\infty d_k \cos(k\theta) = c
+\] Since this must hold for all $\theta$ and $c$ is a constant, we find that $c_1 = 1$ (so that $\sin \theta$ is cancelled from the expression), that $c_k = 0$ for all $k > 1$, and that $d_k = 0$ for all $k \geq 1$. We also obtain $d_0 = c$ so that
+\[
+F(z) = z + C_0 + 1/z
+\] as was to be shown.
+\newpage
+\section*{Problem 5}
+\subsection*{Part A}
+First, we compute the image of the unit circle $\vert z \vert = 1$ under $f$. We find that
+\[
+f(e^{i\theta}) = 2e^{i\theta} + \frac{1}{e^{i\theta}} = 2 e^{i\theta} + e^{-i\theta} = 2 (\cos \theta + i \sin \theta) + (\cos \theta - i \sin \theta) = 3\cos \theta + i \sin \theta 
+\] Note that
+\[
+\frac{(3\cos \theta)^2}{9} + \sin^2 \theta = \cos^2 \theta + \sin^2 \theta = 1
+\] Thus we know that $f$ maps the unit circle onto the ellipse 
+\[
+\frac{x^2}{9} + y^2 = 1
+\] Next, we note that $f(2) = 2(2) + 1/2 = 9/2$ so that $f$ maps the exterior of the unit circle to the exterior of the ellipse
+\[
+\frac{x^2}{9} + y^2 = 1
+\]
+\subsection*{Part B}
+We compute the inverse of $f(z)$ in Part $A$:
+\[
+w = 2z + \frac{1}{z} \Rightarrow wz = 2z^2 + 1 \Rightarrow 2z^2 - wz + 1 = 0 \Rightarrow z = \frac{w \pm \sqrt{w^2 - 8}}{4}
+\] To find out which sign we should use, we let $w = 3$. Then, we have
+\[
+z = \frac{3\pm\sqrt{1}}{4} = 1/2,1
+\] Thus, we choose the positive sign so that
+\[
+f^{-1}(z) = \frac{z + \sqrt{z^2 - 8}}{4}
+\] Next, we let $g(z) = z + 1/z$. Then $g \circ f^{-1}$ first takes the exterior of the ellipse to the exterior of the unit circle and then takes the exterior of the unit circle to the exterior of a real line segment.
+\newpage
+\section*{Problem 6}
+Let 
+\[
+g(z) = \frac{f(z) - f(z_0)}{1- \overline{f(z_0)}f(z)}
+\] so that
+\[
+g^\prime(z) = \frac{f^\prime(z)(1-\overline{f(z_0)}f(z)) - (f(z)-f(z_0))(-f^\prime(z))}{(1-\overline{f(z_0)}f(z))^2}
+\] which is equal to
+\[
+\frac{f^\prime(z) - f^\prime(z)\overline{f(z_0)}f(z) + f(z)f^\prime(z) - f(z_0)f^\prime(z)}{(1-\overline{f(z_0)}f(z))^2}
+\] From this, we deduce that
+\[
+g^\prime(z_0) = \frac{f^\prime(z_0) - f^\prime(z_0)\overline{f(z_0)}f(z_0) + f(z_0)f^\prime(z_0) - f(z_0)f^\prime(z_0)}{(1-\overline{f(z_0)}f(z_0))^2}
+\] which is equal to
+\[
+\frac{f^\prime(z_0)(1- \vert f(z_0) \vert^2)}{( 1-  \vert f(z_0)\vert^2)^2} = \frac{f^\prime(z_0)}{1 - \vert f(z_0) \vert^2}
+\] Notice that 
+\[
+\arg g^\prime(z_0) = \arg f^\prime(z_0)
+\] Set $\theta = -\arg f^\prime(z_0)$. Let $h(z) = e^{i\theta} g(z)$. Then $h(z_0) = e^{i\theta} g(z_0) = 0$ and $h^\prime(z_0) = e^{i\theta} g^\prime(z_0) > 0$.
+\newpage
+\section*{Problem 7}
+We define $h: R \rightarrow U$ as follows: $h(z) = \overline{f(\overline{z})}$. Notice that $h$ is bijective since $f$ is bijective (note that complex conjugation is a bijection on $R$ and $U$ since they are symmetric across the real axis). Next, we claim that $h$ is analytic. Notice that
+\begin{align*}
+\frac{h(z+\delta) - h(z)}{\delta} = \frac{{\overline{f(\overline{z}+\overline{\delta})} - \overline{f(\overline{\delta})}}}{\delta} = \overline{\bigg(\frac{f(\overline{z}+\overline{\delta})-f(\overline{\delta})}{\overline{\delta}}\bigg)}
+\end{align*} Now, we have
+\[
+h^\prime(z) = \lim_{\delta \rightarrow 0} \frac{h(z+\delta) - h(z)}{\delta} = \lim_{\delta \rightarrow 0} \overline{\bigg(\frac{f(\overline{z}+\overline{\delta})-f(\overline{\delta})}{\overline{\delta}}\bigg)} = \overline{\bigg(\lim_{\delta \rightarrow 0} \frac{f(\overline{z}+\overline{\delta}) - f(\overline{\delta})}{\overline{\delta}} \bigg)} = \overline{f^\prime(\overline{z})}.
+\] so that $h$ is analytic. Thus, we have shown that $h$ is a $1-1$ analytic mapping of $R$ onto $U$. Now, we note that
+\[
+h(z_0) = \overline{f(\overline{z_0})} = \overline{f(z_0)} = \overline{0} = 0
+\] since $z_0 \in \rr$. Furthermore, we know that
+\[
+h^\prime(z_0) = \overline{f^\prime(\overline{z_0})} = \overline{f^\prime(z_0)} = f^\prime(z_0) > 0
+\] since $z_0 \in \rr$ and $f^\prime(z_0) \in \rr$. By the uniqueness aspect of the Riemann Mapping Theorem, we find that $f = h$ so that $f(z) = h(z) = \overline{f(\overline{z})}$, from which we obtain
+\[
+\overline{f(z)} = f(\overline{z})
+\] for all $z \in R$.
+\newpage
+\section*{Problem 9}
+First, we consider the case in which $R = \cc$. Then, we let $f(z) = z - z_1 + z_2$. We note that $f(z_1) = z_1 - z_1 + z_2 = z_2$. Furthermore, we know that $f$ is bijective because $f$ is linear. We also know that $f$ is analytic because it is linear. Thus $f$ is a conformal mapping of $\cc$ onto $\cc$ with the property that $f(z_1) = z_2$. Next, we consider the case in which $R \neq \cc$. By the Riemann Mapping Theorem, we know that there exist $f_1: R \rightarrow U$ and $f_2: R \rightarrow U$ such that $f_1(z_1) = 0$ and $f_2(z_2) = 0$. Then $f = f_2^{-1} \circ f_1$ is a conformal mapping of $R$ onto itself such that $f(z_1) = f_2^{-1} \circ f_1(z_1) = f_2^{-1}(0) = z_2$, as desired.
+\newpage
+\section*{Problem 10}
+Let us suppose that $f: \cc \rightarrow R$ was a conformal mapping. By the Riemann Mapping Theorem, there must be some conformal mapping $g: R \rightarrow U$ (this is true because $R \neq \cc$). Let $h = g \circ f$ be the conformal mapping from $\cc$ onto $U$. By Liouville's Theorem, we know that $h$ must be constant (since $h$ is entire and bounded). This is a contradiction. Thus, we find that there is no conformal mapping from $\cc$ onto $R$.
+\end{document} 

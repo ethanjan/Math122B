@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+%\usepackage{mathptmx}
+\usepackage{accents}
+\usepackage{comment}
+\usepackage{graphicx}
+\usepackage{IEEEtrantools}
+ \usepackage{float}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand*\conj[1]{\bar{#1}}
+\newcommand*\mean[1]{\bar{#1}}
+\newcommand\widebar[1]{\mathop{\overline{#1}}}
+
+
+\newcommand{\cc}{{\mathbb C}}
+\newcommand{\rr}{{\mathbb R}}
+\newcommand{\qq}{{\mathbb Q}}
+\newcommand{\nn}{\mathbb N}
+\newcommand{\zz}{\mathbb Z}
+\newcommand{\aaa}{{\mathcal A}}
+\newcommand{\bbb}{{\mathcal B}}
+\newcommand{\rrr}{{\mathcal R}}
+\newcommand{\fff}{{\mathcal F}}
+\newcommand{\ppp}{{\mathcal P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\vv}{{\mathbf v}}
+\newcommand{\ww}{{\mathbf w}}
+\newcommand{\xx}{{\mathbf x}}
+\newcommand{\ds}{\displaystyle}
+\newcommand{\Om}{\Omega}
+\newcommand{\dd}{\mathop{}\,\mathrm{d}}
+\newcommand{\ud}{\, \mathrm{d}}
+\newcommand{\seq}[1]{\left\{#1\right\}_{n=1}^\infty}
+\newcommand{\isp}[1]{\quad\text{#1}\quad}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+
+\DeclareMathOperator{\imag}{Im}
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\diam}{diam}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\cis}{cis}
+
+\def\upint{\mathchoice%
+    {\mkern13mu\overline{\vphantom{\intop}\mkern7mu}\mkern-20mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+    {\mkern7mu\overline{\vphantom{\intop}\mkern7mu}\mkern-14mu}%
+  \int}
+\def\lowint{\mkern3mu\underline{\vphantom{\intop}\mkern7mu}\mkern-10mu\int}
+
+
+
+
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+\title{Math 122B Homework 2}
+\author{Ethan Martirosyan}
+\date{\today}
+\maketitle
+\hbadness=99999
+\hfuzz=50pt
+\section*{Problem 7}
+By the Argument Principle, we have
+\[
+\zz(f) = \frac{1}{2\pi i} \int_\gamma \frac{f^\prime}{f} = \frac{1}{2\pi} \Delta \arg(f(z))
+\] Thus, we only have to prove that $\Delta \arg(f(z))$ can be at most $2 \pi$ for any circle $\gamma$ (then we can conclude that $f$ has at most one zero in any circle so that $f$ has at most one zero). Let $\gamma$ be a circle of radius $K$. According to our hypothesis, $f(\gamma)$ is only real when $\gamma$ is real. Notice that $\gamma$ is real at $K$ and $-K$. This means that $f(\gamma)$ cannot cross the real axis unless $\gamma(t)$ is $K$ or $-K$. Thus $f$ maps the upper semicircle of $\gamma$ into one of the two half-planes (either upper or lower), and $f$ maps the lower semicircle of $\gamma$ into one of the two half-planes. Since the argument of $f(\gamma)$ can only increase by at most $\pi$ in either of these half-planes, we deduce that $\arg(f(z)) \leq 2\pi$ so that $f$ has at most one zero in any circle $\gamma$; thus $f$ has at most one zero in the complex plane.
+\newpage
+\section*{Problem 8}
+\subsection*{Part A}
+First, we claim that $f \neq 0$ on $\gamma$. If $f = 0$ on $\gamma$, then $\vert g \vert \leq \vert f \vert$ on $\gamma$ implies that $g = 0$ on $\gamma$ so that $f+g = 0$ on $\gamma$, which contradicts our assumptions. Then, as in the proof of Rouche's Theorem, we can write
+\[
+\zz(f+g) = \frac{1}{2\pi i} \int_\gamma \frac{(f+g)^\prime}{f+g} = \frac{1}{2\pi i} \int_\gamma \frac{f^\prime}{f} + \frac{1}{2\pi i} \int_\gamma \frac{(1+g/f)^\prime}{1+g/f} = \zz(f) + \frac{1}{2\pi i} \int_\gamma \frac{(1+g/f)^\prime}{1+g/f}
+\] Let $\omega = 1 + g/f$. Notice that 
+\[
+\vert \omega - 1 \vert =  \frac{\vert g \vert}{\vert f \vert} \leq 1
+\] on $\gamma$. Thus $\omega(\gamma)$ remains in the closed unit disk of radius $1$ centered at $1$. We claim that $\omega(\gamma)$ cannot cross $0$. Suppose that $1+g/f = 0$. Then $f+g = 0$, directly contradicting the hypothesis. Thus $\omega(\gamma)$ is a continuous curve that remains inside the unit disk centered at $1$ but does not cross $0$, so it does not contain $0$. By Cauchy's Closed Curve Theorem, we find that 
+\[
+\frac{1}{2\pi i} \int_\gamma \frac{(1+g/f)^\prime}{1+g/f} = 0
+\] so that 
+\[
+\zz(f+g) = \zz(f)
+\]
+\subsection*{Part B}
+Let $f(z) = 2z^4$ and $g(z) = z^5 + 1$. We know that $\vert f (z) \vert = 2 = 1 + 1 \geq \vert z^5 + 1 \vert = \vert g(z) \vert$ on the unit circle. This inequality is an equality only when $z = w_k = e^{2\pi i k/5}$, where $k = 0,1,2,3,4$. We note that
+\[
+2w_0^4 + w_0^5 + 1 = 2 + 1 + 1 =  4
+\] and
+\[
+2w_1^4 + w_1^5 + 1 = 2w_4 + 2 =  2(w_4 + 1) \neq 0
+\] and
+\[
+2w_2^4 + w_2^5 + 1 = 2w_3 + 2 = 2(w_3 + 1) \neq 0
+\] and
+\[
+2w_3^4 + w_3^5 + 1 = 2w_2 + 2 = 2(w_2 + 1) \neq 0
+\] and
+\[
+2w_4^4 + w_4^5 + 1 = 2w_1 + 2 = 2(w_1+1) \neq 0
+\] Thus we have shown that $\vert f \vert \geq \vert g \vert$ and that $f + g \neq 0$ on the unit circle so that $\zz(z^5+2z^4+1) = \zz(f+g) = \zz(f) = 4$ inside $\vert z \vert = 1$.
+\newpage
+\section*{Problem 9}
+\subsection*{Part A}
+Let $f_1(z) = 3e^z - z = f(z) + g(z)$ where $f(z) = 3e^z$ and $g(z) = -z$. Notice that 
+\[
+\vert f(z) \vert = \vert 3e^z \vert \geq \vert 3/e \vert > 1 = \vert g(z)\vert
+\] for $\vert z \vert = 1$. By Rouche's Theorem, we have $\zz(f_1) = \zz(f) = 0$ inside $\vert z \vert = 1$
+\subsection*{Part B}
+Let $f_2(z) = \frac{1}{3}e^z - z = g(z)+f(z)$, where $f(z) = -z$ and $g(z) = \frac{1}{3}e^z$. Notice that
+\[
+\vert f(z) \vert = 1 > \frac{e}{3} \geq \vert g(z) \vert 
+\] on $\vert z \vert = 1$ so that $\zz(f_2) = \zz(f) = 1$ inside $\vert z \vert = 1$.
+\subsection*{Part C}
+First we find the number of zeros of $f_3$ in the circle $\vert z \vert = 2$. Let $f_3(z) = z^4 - 5z +1 = f(z) + g(z)$ where $f(z) = z^4$ and $g(z) = -5z + 1$. Notice that $\vert f(z) \vert = \vert z^4 \vert = 16 > 11 \geq \vert -5z + 1 \vert = \vert g(z) \vert$ for $\vert z \vert = 2$ so that $\zz(f_3) = \zz(f) = 4$ inside $\vert z \vert = 2$. Next, we find the number of zeros of $f_3$ in the circle $\vert z \vert = 1$. Let $f_3(z) = z^4 - 5z + 1 = f(z) + g(z)$ where $f(z) = -5z$ and $g(z) = z^4 + 1$. On the circle $\vert z \vert = 1$ we have $\vert f(z) \vert = \vert -5z \vert = 5 > 2 \geq \vert z^4 + 1 \vert = \vert g(z) \vert$ so that $\zz(f_3) = \zz(f) = 1$ inside $\vert z \vert = 1$. Thus the number of zeros in the annulus is $4 - 1 = 3$.  
+\subsection*{Part D}
+Let $f_4(z) = z^6 - 5z^4 + 3z^2 - 1 = f(z) + g(z)$, where $f(z) = -5z^4$ and $g(z) = z^6 + 3z^2 - 1$. Note that $\vert f(z) \vert = 5 \geq \vert z^6 + 3z^2 - 1 \vert = \vert g(z) \vert$ on $\vert z \vert = 1$. This is only an equality when $z^6 + 3z^2 = -4$ for $\vert z \vert = 1$; that is, when $z = \pm i$. In this case, we have 
+\[
+(\pm i)^6 - 5(\pm i)^4 + 3(\pm i)^2 - 1 = -1 - 5 - 3 - 1 = -10 \neq 0
+\] so that Rouches Theorem applies (by Problem 8 Part A) and we have $\zz(f_4) = \zz(f) = 4$ in the circle $\vert z \vert = 1$.
+\newpage
+\section*{Problem 11}
+By Corollary $10.6$, we have
+\[
+\int_\gamma z^m \frac{f^\prime(z)}{f(z)} \diff z = 2\pi i \sum_{k} \text{Res}\bigg(\frac{z^m f^\prime(z)}{f(z)}; z_k\bigg) 
+\] where we are summing over the zeros of $f$ (since these are the singularities of the function we are integrating). Now, we may write $f(z) = (z-z_k)^q g(z)$ where $g(z_k) \neq 0$ and $q$ is the order of the zero $z_k$. In class, we've shown that
+\[
+\frac{f^\prime(z)}{f(z)} = \frac{q}{z-z_k}  + \frac{g^\prime(z)}{g(z)}
+\] so that
+\[
+z^m \frac{f^\prime(z)}{f(z)} = \frac{z^mq}{z-z_k}  + z^m\frac{g^\prime(z)}{g(z)}
+\] Note that
+\[
+2\pi i \text{Res}\bigg(\frac{z^m f^\prime(z)}{f(z)}; z_k\bigg) = \int_C z^m \frac{f^\prime(z)}{f(z)} \diff z = \int_C \frac{z^mq}{z-z_k} \diff z = 2\pi i qz_k^m
+\] where $C$ is a circle containing only the singularity $z_k$. Notice that the second equality above holds because $z^m\frac{g^\prime(z)}{g(z)}$ is analytic on and inside $C$. Thus we get 
+\[
+\text{Res}\bigg(\frac{z^m f^\prime(z)}{f(z)}; z_k\bigg)  = qz_k^m
+\] so that
+\[
+\int_\gamma z^m \frac{f^\prime(z)}{f(z)} \diff z = 2\pi i \sum_{k} qz_k^m 
+\]
+\newpage
+\section*{Problem 12}
+Let $R > 0$ be fixed, let $f(z) = e^z$, and let $g(z) = P_n(z) - e^z$. Notice that $P_n(z)$ converges to $e^z$ uniformly on the closed disk of radius $R$, which means that $g(z)$ converges to $0$ uniformly on the closed disk of radius $R$. Thus, there must exist some $N$ such that $n \geq N$ implies that $\vert g(z) \vert < e^{-R} \leq \vert f(z) \vert$. By Rouches Theorem, we have
+\[
+\zz(P_n(z)) = \zz(f+g) = \zz(f) = \zz(e^z) = 0
+\] That is, $P_n(z)$ has no zeroes in the closed disk of radius $R$ if $n$ is sufficiently large.
+\newpage
+\section*{Problem 13}
+\subsection*{Part A}
+Notice that
+\[
+(1-z)P(z) = a_0 + a_1 z + \cdots + a_nz^n - (a_0z + a_1z^2 + \cdots + a_n z^{n+1}) \] which is equal to 
+\[
+a_0 + (a_1 - a_0)z + (a_2 - a_1)z^2  + \cdots + (a_n - a_{n-1})z^n - a_nz^{n+1}
+\] Suppose that $P(z)$ has some root $\omega$ such that $\vert \omega \vert > 1$ and let $r$ be such that $1 < r < \vert \omega \vert$. Let $g(z) = (1-z)P(z) + a_n z^{n+1}$ and $f(z) = -a_n z^{n+1}$. Notice that
+\begin{align*}
+\vert g(z) \vert &= \vert (1-z)P(z) + a_n z^{n+1} \vert =  \vert a_0 + (a_1 - a_0)z + (a_2 - a_1)z^2  + \cdots + (a_n - a_{n-1})z^n \vert \\
+& <  \vert a_0 + (a_1 - a_0) + (a_2 - a_1) + \cdots + (a_n - a_{n-1}) \vert \vert z \vert^{n+1} = \vert -a_n z^{n+1} \vert = \vert f(z) \vert
+\end{align*} for $\vert z \vert = r$ so that $\zz(f+g) = \zz(f)$ inside the circle of radius $r$. That is, the number of zeros of $(1-z)P(z)$ in this circle is the same as the number of zeros of $-a_nz^{n+1}$ . Notice that the latter has $n+1$ zeros at $0$. Thus $(1-z)P(z)$ must have $n+1$ zeros in the circle of radius $r$. Since the degree of $(1-z)P(z)$ is $n+1$, we conclude that all of the zeros of $(1-z)P(z)$ must lie in the circle of radius $r$. This contradicts the fact that $\omega$ is a zero of $(1-z)P(z)$. Thus we may conclude that all the zeros of $(1-z)P(z)$ lie inside the unit disk so that all the zeros of $P(z)$ also lie inside the unit disk.
+\subsection*{Part B}
+Notice that
+\[
+\frac{1}{1-z} = 1 + z + z^2 +\cdots 
+\] so that
+\[
+\frac{1}{(1-z)^2} = \frac{\diff}{\diff z} \frac{1}{1-z} = 1 + 2z + 3z^2 + \cdots
+\] 
+Thus, we find that the sequence $P_n(z)$ converges to $q(z) = 1/(1-z)^2$ on the open unit disk $\vert z \vert < 1$. We wish to apply Rouche's Theorem to $g(z) = P_n(z) - q(z)$ and $f(z) = q(z)$ so that we can deduce that $P_n(z)$ has as many zeros as $q(z)$ in a disk of radius $\rho$; namely, zero. To apply Rouche's Theorem, we must show that $\vert P_n(z) - q(z) \vert < \vert q(z) \vert$ on $C(0;\rho)$. First, we find a lower bound for $q(z)$ in the unit disk. Notice that $(1-(-1))^2 = 4$, so we may deduce that $q(z) > 1/4$ in the unit disk (note that this bound also holds on the circle of radius $\rho$). Next, we note that $P_n(z)$ converges to $q(z)$ uniformly on the circle $C(0;\rho)$. In particular, there must exist some $N$ such that $n > N$ and $z \in C(0;\rho)$ imply that $\vert P_n(z) - q(z) \vert < 1/4$. Thus, for sufficiently large $n$, we have
+\[
+\vert g(z) \vert = \vert P_n(z) - q(z) \vert < 1/4 < \vert q(z) \vert = \vert f(z) \vert 
+\]  so that we may apply Rouche's theorem to deduce that $f+g = P_n$ has the same number of zeros in the disk of radius $\rho$ as $f = q(z)$, which is $0$.
+\newpage
+\subsection*{Problem 14}
+Let $P(z) = z^n + a_{n-1} z^{n-1} + \cdots + a_1 z + a_0$ (we may assume without loss of generality that the leading coefficient is $1$), and let $C$ be the circle of radius $R =  \vert a_{n-1} \vert + \cdots +  \vert a_0\vert + 1$. Then, we have
+\begin{align*}
+\bigg \vert \sum_{k=0}^{n-1} a_k z^k \bigg \vert < 1 + \sum_{k=0}^{n-1} \vert a_k \vert \vert z \vert^k \leq \bigg(1+\sum_{k=0}^{n-1} \vert a_k \vert\bigg) \vert z \vert^{n-1}
+ = R \vert z \vert^{n-1} = \vert z \vert^n = \vert z^n \vert
+\end{align*} when $z$ is on $C$. Let $g(z) = \sum_{k=0}^{n-1} a_k z^k$ and $f(z) = z^n$. Then Rouche's Theorem implies that
+\[
+\zz(f+g) = \zz(f)
+\] inside the circle $C$. Since $f$ has $n$ roots in $C$ ($0$ with multiplicity $n$), we know that $f+g = P(z)$ must also have $n$ roots in $C$.
+\end{document} 
